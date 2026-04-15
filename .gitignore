@@ -1,0 +1,21 @@
+# Rust
+lsp-server/target/
+
+# Node
+vscode-extension/node_modules/
+vscode-extension/out/
+vscode-extension/*.vsix
+
+# JetBrains
+jetbrains-plugin/.gradle/
+jetbrains-plugin/build/
+jetbrains-plugin/.idea/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
