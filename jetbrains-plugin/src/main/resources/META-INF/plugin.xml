@@ -20,7 +20,7 @@
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
-    <depends>org.jetbrains.plugins.textmate</depends>
+    <depends>com.intellij.modules.lsp</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType
@@ -37,13 +37,13 @@
             implementationClass="dev.youpkoopmans.taskfile.TaskfileParserDefinition"
         />
 
-        <platform.lsp.serverSupportProvider
-            implementation="dev.youpkoopmans.taskfile.TaskfileLspServerSupportProvider"
+        <lang.syntaxHighlighterFactory
+            language="Taskfile"
+            implementationClass="dev.youpkoopmans.taskfile.TaskfileSyntaxHighlighterFactory"
         />
 
-        <!-- Register the TextMate bundle for syntax highlighting -->
-        <textmate.bundleProvider
-            implementation="dev.youpkoopmans.taskfile.TaskfileTextMateBundleProvider"
+        <platform.lsp.serverSupportProvider
+            implementation="dev.youpkoopmans.taskfile.TaskfileLspServerSupportProvider"
         />
     </extensions>
 </idea-plugin>

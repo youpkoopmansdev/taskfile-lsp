@@ -1,7 +1,7 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.22"
-    id("org.jetbrains.intellij.platform") version "2.2.1"
+    id("org.jetbrains.kotlin.jvm") version "1.9.25"
+    id("org.jetbrains.intellij.platform") version "2.14.0"
 }
 
 group = "dev.youpkoopmans.taskfile"
@@ -16,8 +16,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        intellijIdeaCommunity("2024.1")
-        bundledPlugin("org.jetbrains.plugins.textmate")
+        intellijIdea("2026.1")
     }
 }
 
@@ -27,7 +26,7 @@ kotlin {
 
 tasks {
     patchPluginXml {
-        sinceBuild.set("232")
-        untilBuild.set("252.*")
+        sinceBuild.set("242")
+        untilBuild.set("262.*")
     }
 }
