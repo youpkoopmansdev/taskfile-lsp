@@ -16,10 +16,8 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        intellijIdeaCommunity("2023.2")
-        bundledPlugin("com.intellij.modules.platform")
+        intellijIdeaCommunity("2024.1")
         bundledPlugin("org.jetbrains.plugins.textmate")
-        instrumentationTools()
     }
 }
 
