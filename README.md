@@ -69,18 +69,40 @@ code --install-extension taskfile-*.vsix
 
 The extension activates for any file named `Taskfile` or `*.Taskfile`.
 
-## JetBrains (IntelliJ, WebStorm, GoLand, etc.)
+## JetBrains (RustRover, IntelliJ, WebStorm, GoLand, etc.)
 
-### Install from source
+### Install from GitHub Release
+
+1. Go to [Releases](https://github.com/youpkoopmansdev/taskfile-lsp/releases)
+2. Download the `taskfile-intellij-*.zip` plugin file
+3. In RustRover: **Settings → Plugins → ⚙️ → Install Plugin from Disk...**
+4. Select the downloaded ZIP
+5. Restart the IDE
+
+### Install the LSP server
+
+The plugin needs `taskfile-lsp` in your PATH:
+
+```sh
+# From the same release page, download the binary for your OS, then:
+tar xzf taskfile-lsp-macos-aarch64.tar.gz
+sudo mv taskfile-lsp /usr/local/bin/
+```
+
+Or build from source:
+
+```sh
+cd lsp-server
+cargo install --path .
+```
+
+### Build plugin from source
 
 ```sh
 cd jetbrains-plugin
-gradle wrapper
 ./gradlew buildPlugin
+# Plugin ZIP → build/distributions/
 ```
-
-The plugin ZIP will be in `build/distributions/`. Install it via:
-**Settings → Plugins → ⚙️ → Install Plugin from Disk**
 
 ### Requirements
 

@@ -92,9 +92,28 @@ jobs:
           name: vscode-extension
           path: vscode-extension/*.vsix
 
+  build-jetbrains:
+    name: Package JetBrains Plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Build plugin
+        working-directory: jetbrains-plugin
+        run: ./gradlew buildPlugin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jetbrains-plugin
+          path: jetbrains-plugin/build/distributions/*.zip
+
   release:
     name: Create Release
-    needs: [build-lsp, build-vscode]
+    needs: [build-lsp, build-vscode, build-jetbrains]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -111,3 +130,4 @@ jobs:
             artifacts/taskfile-lsp-*.tar.gz
             artifacts/taskfile-lsp-*.zip
             artifacts/*.vsix
+            artifacts/*.zip
